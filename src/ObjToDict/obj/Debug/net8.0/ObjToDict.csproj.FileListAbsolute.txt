@@ -1,0 +1,12 @@
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/bin/Debug/net8.0/ObjToDict.deps.json
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/bin/Debug/net8.0/ObjToDict.dll
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/bin/Debug/net8.0/ObjToDict.pdb
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/obj/Debug/net8.0/ObjToDict.csproj.AssemblyReference.cache
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/obj/Debug/net8.0/ObjToDict.GeneratedMSBuildEditorConfig.editorconfig
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/obj/Debug/net8.0/ObjToDict.AssemblyInfoInputs.cache
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/obj/Debug/net8.0/ObjToDict.AssemblyInfo.cs
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/obj/Debug/net8.0/ObjToDict.csproj.CoreCompileInputs.cache
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/obj/Debug/net8.0/ObjToDict.dll
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/obj/Debug/net8.0/refint/ObjToDict.dll
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/obj/Debug/net8.0/ObjToDict.pdb
+/home/binwan/Documents/binwan-dev/project/ObjToDict/src/ObjToDict/obj/Debug/net8.0/ref/ObjToDict.dll
