@@ -37,13 +37,13 @@ public class CodeDescripter
 	var toDictMethod = new MethodDescripter("ToDict", classDescripter)
 	    .SetAccess(AccessType.Public)
             .SetReturnType("Dictionary<string, string>");
-        toDictMethod.Parameters.Add(new ParameterDescripter("object", "dataa"));
-        // toDictMethod.AppendCode($@"	var dict = new Dictionary<string, string>();");
+        toDictMethod.Parameters.Add(new ParameterDescripter(typeof(T).FullName, "data"));
+        toDictMethod.AppendCode($@"	var dict = new Dictionary<string, string>();");
         foreach (var property in properties)
         {
-	    // toDictMethod.AppendCode(@$"            dict.Add(""{property.Name}"", data.{property.Name}.ToString());");
+	    toDictMethod.AppendCode(@$"            dict.Add(""{property.Name}"", data.{property.Name}.ToString());");
 	}
-	toDictMethod.AppendCode("            return new Dictionary<string, string>();");
+	toDictMethod.AppendCode("            return dict;");
 	return toDictMethod;
     }
 

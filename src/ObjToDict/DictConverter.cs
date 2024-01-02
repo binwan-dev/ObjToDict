@@ -20,12 +20,12 @@ public class DictConverter
 	    _metadatas.Add(typeof(T).FullName??string.Empty, metadata);
         }
 
-	// var converter=metadata.DictConverter as IDictConverter<T>;
-        // if (converter == null)
-        // {
-        //     return null;
-        // }
+	var converter=metadata.DictConverter as IDictConverter<T>;
+        if (converter == null)
+        {
+            return null;
+        }
 
-        return metadata.DictConverter.ToDict(data);
+        return converter.ToDict(data);
     }
 }
