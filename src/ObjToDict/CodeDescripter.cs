@@ -24,7 +24,13 @@ public class CodeDescripter
 	var className = $"{typeof(T).Name}Converter";
         var classDescripter = new ClassDescripter(className, _namespace)
 	    .SetAccess(AccessType.Public)
-            .SetBaseType(typeof(T).FullName, $"IDictConverter<{typeof(T).FullName}>");
+            .SetBaseType(typeof(T).FullName, $"IDictConverter<{typeof(T).FullName}>")
+	    .CreateFiled(new FieldDescripter("_valueConvertManager")
+			 .SetType(typeof(ValueConvertManager))
+			 .SetAccess(AccessType.PrivateReadonly))
+	    .CreateConstructor(new ConstructorDescripter(className)
+			       .SetCode("    _valueConvertManager = new ValueConvertManager();")
+			       .SetAccess(AccessType.Public));
 	classDescripter.Methods.Add(GenerateToDictMethod<T>(classDescripter,properties));
         _codeBuilder.CreateClass(classDescripter);
 	var assembly= await _codeBuilder.BuildAsync();
@@ -41,7 +47,7 @@ public class CodeDescripter
         toDictMethod.AppendCode($@"	var dict = new Dictionary<string, string>();");
         foreach (var property in properties)
         {
-	    toDictMethod.AppendCode(@$"            dict.Add(""{property.Name}"", data.{property.Name}.ToString());");
+	    toDictMethod.AppendCode(@$"            dict.Add(""{property.Name}"", _valueConvertManager.ToString(data.{property.Name}));");
 	}
 	toDictMethod.AppendCode("            return dict;");
 	return toDictMethod;

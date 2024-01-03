@@ -39,6 +39,8 @@ public class Person
 
     public int Age{ get;set; }
 
+    public DateTime Birthday{ get;set; }
+
     public Dictionary<string,string> ToDict()
     {
 	return new Dictionary<string,string>();

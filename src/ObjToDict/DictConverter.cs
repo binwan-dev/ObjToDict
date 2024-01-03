@@ -15,8 +15,8 @@ public class DictConverter
             {
                 FullName = typeof(T).FullName ?? string.Empty,
                 Type = typeof(T),
-                DictConverter = conveter
-            };
+                DictConverter = conveter ?? throw new InvalidOperationException($"Cannot create converter for {name}")
+        };
 	    _metadatas.Add(typeof(T).FullName??string.Empty, metadata);
         }
 
