@@ -7,24 +7,21 @@ public class DictConverter
 
     public static Dictionary<string, string>? ToDictAsync<T>(T data)
     {
-	var name = typeof(T).FullName;
-        if(!_metadatas.TryGetValue(typeof(T).FullName??"",out var metadata))
+        var ttype = typeof(T);
+        if (!_metadatas.TryGetValue(ttype.FullName ?? "", out var metadata))
         {
-            var conveter=_codeDescripter.CreateAsync<T>().Result;
+            var conveter = _codeDescripter.CreateAsync<T>().Result;
             metadata = new TypeMetadata()
             {
-                FullName = typeof(T).FullName ?? string.Empty,
-                Type = typeof(T),
-                DictConverter = conveter ?? throw new InvalidOperationException($"Cannot create converter for {name}")
-        };
-	    _metadatas.Add(typeof(T).FullName??string.Empty, metadata);
+                FullName = ttype.FullName ?? string.Empty,
+                Type = ttype,
+                DictConverter = conveter ?? throw new InvalidOperationException($"Cannot create converter for {ttype.FullName}")
+            };
+            _metadatas.Add(ttype.FullName ?? string.Empty, metadata);
         }
 
-	var converter=metadata.DictConverter as IDictConverter<T>;
-        if (converter == null)
-        {
-            return null;
-        }
+        var converter = metadata.DictConverter as IDictConverter<T>;
+        if (converter == null) return null;
 
         return converter.ToDict(data);
     }
